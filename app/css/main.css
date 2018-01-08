@@ -1,12 +1,99 @@
 body {
-  font-size: 22px; }
+  margin: 0;
+  padding: 0;
+  font: 1em/1.3em Arial, Tahoma, "Trebuchet MS", sans-serif; }
 
-body {
-  background-color: green;
+img {
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  border: none; }
+
+.main {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transform: all 2s;
-      -ms-transform: all 2s;
-          transform: all 2s; }
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #fefefe;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  max-width: 1000px;
+  margin: 20px auto;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap; }
+
+.bl {
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #fefefe;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  margin: 20px; }
+
+.bl {
+  text-align: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 300px;
+      -ms-flex: 1 1 300px;
+          flex: 1 1 300px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap; }
+
+h3 {
+  color: blue;
+  margin: 0 10px 0 0;
+  font-size: 1.1em; }
+
+.image img {
+  width: 100%;
+  height: auto; }
+
+.image {
+  margin: 10px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 200px;
+      -ms-flex: 1 1 200px;
+          flex: 1 1 200px; }
+
+.text {
+  margin: 10px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 150px;
+      -ms-flex: 1 1 150px;
+          flex: 1 1 150px; }
+
+a.button {
+  background-color: blue;
+  color: #fff;
+  padding: 5px 10px;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+  text-decoration: none;
+  -webkit-transition: all 0.45s;
+  -o-transition: all 0.45s;
+  transition: all 0.45s; }
+
+a.button:hover {
+  background-color: red; }
+
+.fl1 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 100%;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%; }
