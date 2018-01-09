@@ -1,6 +1,7 @@
 "use strict"
 
-var gulp       = require('gulp'), // Подключаем Gulp
+var 
+  gulp         = require('gulp'), // Подключаем Gulp
 	sass         = require('gulp-sass'), //Подключаем Sass пакет,
 	scss				 = require('gulp-scss'), //Подключаем Scss пакет,
 	browserSync  = require('browser-sync'), // Подключаем Browser Sync
@@ -123,7 +124,7 @@ gulp.task('clean', function() {
 // **************** СЖАТИЕ ИЗОБРАЖЕНИЙ
 
 gulp.task('img', function() {
-	return gulp.src('app/img/**/*') // Берем все изображения из app
+	return gulp.src(['!app/img/forsprite/**/*', 'app/img/**/*']) // Берем все изображения из app
 		.pipe(cache(imagemin({ // С кешированием
 		// .pipe(imagemin({ // Сжимаем изображения без кеширования
 			interlaced: true,

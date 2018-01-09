@@ -1,3 +1,5 @@
+@import "part";
+
 body {
 	margin: 0; 
 	padding: 0;
@@ -9,6 +11,14 @@ img{
 	vertical-align: middle; 
 	border: none;
 }
+
+.image1 {
+  background-image: url(../img/sprite/sprite.png);
+  background-position: 0px 0px;
+  width: 500px;
+  height: 312px;
+}
+
 .main{
 	display: flex;
 	border: 1px solid #ccc; 
@@ -59,9 +69,12 @@ a.button {
 	text-decoration: none;
 	transition: all 0.45s;
 	&:hover {
-		background-color: red;
+		background-color: green;
 	}
 }
 .fl1 {
 	flex: 1 1 100%;
 }
+
+
+

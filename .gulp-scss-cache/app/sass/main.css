@@ -1,3 +1,7 @@
+html {
+  font-size: 2em;
+  background-color: lightblue; }
+
 body {
   margin: 0;
   padding: 0;
@@ -8,6 +12,12 @@ img {
   padding: 0;
   vertical-align: middle;
   border: none; }
+
+.image1 {
+  background-image: url(../img/sprite/sprite.png);
+  background-position: 0px 0px;
+  width: 500px;
+  height: 312px; }
 
 .main {
   display: flex;
@@ -58,7 +68,7 @@ a.button {
   text-decoration: none;
   transition: all 0.45s; }
   a.button:hover {
-    background-color: red; }
+    background-color: green; }
 
 .fl1 {
   flex: 1 1 100%; }
