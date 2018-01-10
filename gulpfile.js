@@ -44,6 +44,7 @@ gulp.task('scss', function(){ // Создаем таск Sass
 		.pipe(scss()) // Преобразуем Scss в CSS посредством gulp-scss
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
+		// .pipe(cssnano()) // Сжимаем CSS
 		.pipe(gulp.dest('app/css')) // Выгружаем результата в папку app/css
 		.pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
 });
