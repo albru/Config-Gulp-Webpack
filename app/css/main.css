@@ -1,11 +1,84 @@
 html {
-  font-size: 2em;
+  font-size: 1em;
   background-color: lightblue; }
 
 body {
   margin: 0;
   padding: 0;
   font: 1em/1.3em Arial, Tahoma, "Trebuchet MS", sans-serif; }
+
+.header1 {
+  background-color: lightgreen;
+  width: 100%;
+  height: 100%;
+  margin: 20px; }
+
+.list1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  height: 100%; }
+
+.item1 {
+  list-style: none;
+  margin: 10px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 150px;
+      -ms-flex: 1 1 150px;
+          flex: 1 1 150px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px dotted white; }
+
+.header2 {
+  background-color: lightblue;
+  width: 78vmax;
+  margin: 2vmax;
+  font-size: 1.3vmax;
+  margin: auto;
+  height: 5vmax;
+  line-height: 5vmax; }
+
+.list2 {
+  vertical-align: middle;
+  text-align: center; }
+
+.item2 {
+  display: inline-block;
+  margin-right: 8vmax;
+  border: 1px dotted white; }
+
+.header3 {
+  background-color: pink;
+  width: 100%;
+  height: 100%;
+  margin: 2em;
+  font-size: 1em;
+  margin: auto;
+  height: 4em;
+  line-height: 4em; }
+
+.list3 {
+  vertical-align: middle;
+  text-align: center; }
+
+.item3 {
+  display: inline-block;
+  margin-right: 6em;
+  border: 1px dotted white; }
 
 img {
   margin: 0;
@@ -39,7 +112,8 @@ img {
   -webkit-box-direction: normal;
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
-          flex-flow: row wrap; }
+          flex-flow: row wrap;
+  text-align: center; }
 
 .bl {
   padding: 10px;
