@@ -20,16 +20,22 @@ var
 
 // **************** ПРОВЕРЯЕМ И УДАЛЯЕМ НЕ ИСПОЛЬЗУЕМЫЙ CSS КОД
 
+gulp.task('uncss', function() {
+	return gulp.src('app/css/**/*.css')
+		.pipe(uncss({
+     html: ['app/**/*.html']
+     }))
+		.pipe(gulp.dest('app/css'))
+});
+
 gulp.task('unscss', function() {
-	return gulp.src([
-		'app/sass/**/*.scss',
-		'app/css/**/*.css'
-		])
+	return gulp.src('app/sass/**/*.scss')
 		.pipe(uncss({
      html: ['app/**/*.html']
      }))
 		.pipe(gulp.dest('app/sass'))
 });
+
 
 // **************** КОМПИЛИРУЕМ SASS В CSS
 
@@ -124,7 +130,7 @@ gulp.task('clean', function() {
 // **************** СЖАТИЕ ИЗОБРАЖЕНИЙ
 
 gulp.task('img', function() {
-	return gulp.src(['!app/img/forsprite/**/*', 'app/img/**/*']) // Берем все изображения из app
+	return gulp.src(['!app/img/forsprite', 'app/img/**/*']) // Берем все изображения из app
 		.pipe(cache(imagemin({ // С кешированием
 		// .pipe(imagemin({ // Сжимаем изображения без кеширования
 			interlaced: true,
@@ -137,7 +143,7 @@ gulp.task('img', function() {
 
 // **************** ИТОГОВЫЙ BUILD
 
-gulp.task('build', ['clean', 'img', 'unscss', 'scss', 'scripts'], function() {
+gulp.task('build', ['clean', 'img', 'unscss', 'uncss', 'scss', 'scripts'], function() {
 
 	var buildCss = gulp.src([ // Переносим библиотеки в продакшен
 		'app/css/main.css',
