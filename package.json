@@ -9,6 +9,7 @@
   "author": "Alexandr Bryukhanov",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.23.5",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
@@ -26,8 +27,5 @@
     "gulp.spritesmith": "^6.9.0",
     "imagemin-pngquant": "^5.0.1"
   },
-  "dependencies": {
-    "browser-sync": "^2.23.5",
-    "es6-promise": "^4.2.2"
-  }
+  "dependencies": {}
 }

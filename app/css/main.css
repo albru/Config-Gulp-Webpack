@@ -45,9 +45,9 @@ body {
 
 .header2 {
   background-color: lightblue;
-  width: 78vmax;
-  margin: 2vmax;
-  font-size: 1.3vmax;
+  width: 50vmax;
+  margin: 1vmax;
+  font-size: 1vmax;
   margin: auto;
   height: 5vmax;
   line-height: 5vmax; }
@@ -58,7 +58,7 @@ body {
 
 .item2 {
   display: inline-block;
-  margin-right: 8vmax;
+  margin-right: 4vmax;
   border: 1px dotted white; }
 
 .header3 {
