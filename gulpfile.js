@@ -137,7 +137,7 @@ gulp.task('img', function() {
 			progressive: true,
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
-		}))/**/)
+		})))
 		.pipe(gulp.dest('dist/img')); // Выгружаем на продакшен
 });
 
