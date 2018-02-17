@@ -1,0 +1,56 @@
+@mixin placecolor($color: #000000) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+;
+
+@mixin standart {
+  @media screen and (min-width: $standart) {
+    @content
+  }
+}
+
+;
+
+@mixin mediumscreen {
+  @media screen and (max-width: $mediumscreen) {
+    @content
+  }
+}
+
+;
+
+@mixin tablets {
+  @media screen and (max-width: $tablets) {
+    @content
+  }
+}
+
+;
+
+@mixin phones {
+  @media screen and (max-width: $phones) {
+    @content
+  }
+}
+
+;
+
+@mixin bigscreen {
+  @media screen and (min-width: $bigscreen) {
+    @content
+  }
+}
+
+;
