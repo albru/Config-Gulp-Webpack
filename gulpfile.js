@@ -1,66 +1,83 @@
 "use strict";
 
 const
-    gulp = require('gulp'), // Подключаем Gulp
-    sass = require('gulp-sass'), //Подключаем Sass пакет,
-    scss = require('gulp-scss'), //Подключаем Scss пакет,
-    browserSync = require('browser-sync'), // Подключаем Browser Sync
-    concat = require('gulp-concat'), // Подключаем gulp-concat (для конкатенации файлов)
-    uglify = require('gulp-uglify'), // Подключаем gulp-uglifyjs (для сжатия JS)
-    cssnano = require('gulp-cssnano'), // Подключаем пакет для минификации CSS
-    rename = require('gulp-rename'), // Подключаем библиотеку для переименования файлов
-    del = require('del'), // Подключаем библиотеку для удаления файлов и папок
-    imagemin = require('gulp-imagemin'), // Подключаем библиотеку для работы с изображениями
-    pngquant = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
-    cache = require('gulp-cache'), // Подключаем библиотеку кеширования
-    autoprefixer = require('gulp-autoprefixer'), // Подключаем библиотеку для автоматического добавления префиксов
-    spritesmith = require('gulp.spritesmith'), // Подключаем библиотеку для автоматического создания спрайтов
-    upmodul = require("gulp-update-modul"), // Подключаем библиотеку для обновления плагинов
-    uncss = require('gulp-uncss'), // Подключаем библиотеку для автоматического удаления не используемого кода CSS
-    plumber = require('gulp-plumber'), // Подключаем пакет для отображения ошибок(чтобы не выкидывало)
-    sourcemaps = require('gulp-sourcemaps'), // Соурсмапы
-    babel = require('gulp-babel'), // Переписывает модный джс в старый
-    groupMediaQueries = require('gulp-group-css-media-queries');
+    gulp = require('gulp'),
+    postcss = require('gulp-postcss'),
+    sass = require('gulp-sass'),
+    scss = require('gulp-scss'),
+    browserSync = require('browser-sync'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    cssnano = require('gulp-cssnano'),
+    rename = require('gulp-rename'),
+    del = require('del'),
+    imagemin = require('gulp-imagemin'),
+    pngquant = require('imagemin-pngquant'),
+    cache = require('gulp-cache'),
+    autoprefixer = require('gulp-autoprefixer'),
+    spritesmith = require('gulp.spritesmith'),
+    upmodul = require("gulp-update-modul"),
+    uncss = require('gulp-uncss'),
+    plumber = require('gulp-plumber'),
+    sourcemaps = require('gulp-sourcemaps'),
+    babel = require('gulp-babel'), //
+    groupMediaQueries = require('gulp-group-css-media-queries'),
+    svgstore = require('gulp-svgstore'),
+    svgmin = require('gulp-svgmin'),
+    cheerio = require('gulp-cheerio'),
+    size = require('gulp-size'),
+    buffer = require('vinyl-buffer'),
+    merge = require('merge-stream'),
+    htmlmin = require('gulp-htmlmin');
 
-//
+// SOURCES
 
 const src = {
     baseApp: 'app',
     baseDist: 'dist',
     htmlTake: 'app/*.html',
     scssTake: 'app/sass/**/*.scss',
-    jsTake: 'app/js/**/*',
-    phpTake: 'app/js/**/*.js',
+    jsTake: 'app/js/*.js',
+    phpTake: 'app/*.php',
     fontsTake: 'app/fonts/**/*',
-    imgTake: 'app/img/**/**',
+    imgTake: [
+        'app/img/**/**',
+        '!app/img/sprites/*.scss',
+        '!app/img/forsprite/**/**'
+    ],
     pngTake: 'app/img/forsprite/png/*',
-    cssTake:
-        [
-            'app/css/main.css',
-            'app/css/libs.min.css'
-        ],
-    cssLibsTake:
-        [
-            'app/libs/normalize-css/normalize.css',
-            'app/libs/magnific-popup/baseDist/magnific-popup.css'
-        ],
-    jsLibsTake:
-        [
-            'app/libs/jquery/baseDist/jquery.min.js',
-            'app/libs/magnific-popup/baseDist/jquery.magnific-popup.min.js'
-        ],
+    svgTake: 'app/img/forsprite/svg/*',
+    cssTake: [
+        'app/css/main.css',
+        'app/css/libs.min.css'
+    ],
+    cssLibsTake: [
+        'app/libs/normalize-css/normalize.css',
+        'app/libs/magnific-popup/baseDist/magnific-popup.css'
+    ],
+    jsLibsTake: [
+        'app/libs/jquery/baseDist/jquery.min.js',
+        'app/libs/magnific-popup/baseDist/jquery.magnific-popup.min.js'
+    ],
 
-    pngPut: 'app/img/sprites/png',
+    svgPut: 'app/img/sprites/',
+    pngPut: 'app/img/sprites/',
     cssPut: 'app/css',
     jsPut: 'app/js',
-
 
     imgDist: 'dist/img',
     jsDist: 'dist/js',
     cssDist: 'dist/css',
-    fontsDist: 'dist/fonts',
-    htmlDist: 'dist/'
+    fontsDist: 'dist/fonts'
 };
+
+// HTML
+
+gulp.task('html', function () {
+    return gulp.src(src.htmlTake)
+        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(gulp.dest(src.baseDist));
+});
 
 // CSS
 
@@ -95,16 +112,16 @@ gulp.task('css-libs', ['scss'], function () {
 
 // JS
 
-// gulp.task('scripts', function () {
-//     return gulp.src(src.jsTake)
-//         .pipe(plumber())
-//         .pipe(babel({
-//             presets: ['env']
-//         }))
-//         // .pipe(uglify())
-//         // .pipe(concat('script.min.js'))
-//         .pipe(gulp.dest(src.jsDist))
-// });
+gulp.task('scripts', function () {
+    return gulp.src(src.jsTake)
+        .pipe(plumber())
+        .pipe(babel({
+            presets: ['env']
+        }))
+        // .pipe(concat('script.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(src.jsDist))
+});
 
 
 gulp.task('jslibs', function () {
@@ -152,7 +169,7 @@ gulp.task('clean', function () {
     return del.sync(src.baseDist);
 });
 
-gulp.task('build', ['clean', 'scss', 'jslibs', 'img'], function () {
+gulp.task('build', ['clean', 'html', 'scss', 'jslibs', 'scripts', 'img'], function () {
 
     var buildCss = gulp.src(src.cssTake)
         .pipe(gulp.dest(src.cssDist));
@@ -160,27 +177,70 @@ gulp.task('build', ['clean', 'scss', 'jslibs', 'img'], function () {
     var buildFonts = gulp.src(src.fontsTake)
         .pipe(gulp.dest(src.fontsDist));
 
-    var buildJs = gulp.src(
-        src.jsTake)
-        .pipe(gulp.dest(src.jsDist));
+    // var buildJs = gulp.src(
+    //     src.jsTake)
+    //     .pipe(gulp.dest(src.jsDist));
 
-    var buildHtml = gulp.src(src.htmlTake)
-        .pipe(gulp.dest(src.htmlDist));
+    // var buildHtml = gulp.src(src.htmlTake)
+    //     .pipe(gulp.dest(src.htmlDist));
+
+    var buildPhp = gulp.src(src.phpTake)
+        .pipe(gulp.dest(src.baseDist));
 
 });
 
 // SPRITES
 
-gulp.task('sprite:png', function () {
-    var spriteData =
-        gulp.src(src.pngTake)
-            .pipe(spritesmith({
-                imgName: 'sprite.png',
-                cssName: 'sprite.css'
-            }));
+gulp.task('sprite:png', function (callback) {
+    del(src.pngPut + '*.png');
 
-    spriteData.img.pipe(gulp.dest(src.pngPut));
-    spriteData.css.pipe(gulp.dest(src.cssPut));
+    let spriteData = gulp.src(src.pngTake)
+        .pipe(spritesmith({
+            imgName: 'sprite-png.png',
+            cssName: 'sprite-png.scss',
+            padding: 35,
+            imgPath: src.pngPut
+        }));
+    let imgStream = spriteData.img
+        .pipe(buffer())
+        .pipe(imagemin({
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest(src.pngPut));
+    let cssStream = spriteData.css
+        .pipe(gulp.dest(src.pngPut));
+    return merge(imgStream, cssStream);
+});
+
+gulp.task('sprite:svg', function (callback) {
+    return gulp.src(src.svgTake)
+        .pipe(svgmin(function (file) {
+            return {
+                plugins: [{
+                    cleanupIDs: {
+                        minify: true
+                    }
+                }]
+            }
+        }))
+        .pipe(svgstore({inlineSvg: true}))
+        .pipe(cheerio({
+            run: function ($) {
+                // $('path').removeAttr('fill');
+                // $('g').removeAttr('fill');
+                $('svg').attr('style', 'display:none');
+            },
+            parserOptions: {
+                xmlMode: true
+            }
+        }))
+        .pipe(rename('sprite-svg.svg'))
+        .pipe(size({
+            title: 'Размер svg спрайта',
+            showFiles: true,
+            showTotal: false
+        }))
+        .pipe(gulp.dest(src.svgPut));
 });
 
 // ОЧИСТКА КЭША
