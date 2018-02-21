@@ -1,25 +1,11 @@
-@import 'abstracts/variables';
-@import 'abstracts/functions';
-@import 'abstracts/mixins';
-@import 'base/fonts';
-@import 'base/reset';
-@import 'base/sprite';
-@import 'layout/header.scss';
-@import 'layout/features.scss';
-@import 'layout/comments.scss';
-@import 'layout/menu.scss';
-@import 'layout/team.scss';
-@import 'layout/delivery.scss';
-@import 'layout/footer.scss';
-@import 'layout/best-burgers.scss';
-@import 'components/mobile-menu';
-@import 'components/popup';
-@import 'components/main-nav';
-@import 'components/promo';
-@import 'components/logo.scss';
-@import 'components/buttons.scss';
-@import 'components/fixed-menu';
-@import 'components/accordeon-team.scss';
-@import 'components/accordeon-menu.scss';
-@import 'components/carousel-burgers.scss';
-@import 'components/map-hint.scss';
+@import "misc/variables.scss";
+@import "misc/functions.scss";
+@import "misc/mixins.scss";
+@import "misc/media.scss";
+@import "misc/animations.scss";
+@import "misc/fonts.scss";
+@import "misc/layout.scss";
+@import "misc/sprite.scss";
+@import "layout/header.scss";
+
+

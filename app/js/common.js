@@ -1,19 +1,9 @@
 "use strict";
 
-// BUTTON ANIMATION
+// ONE PAGE SCROLL
 
 const currentWidth = document.body.offsetWidth;
 const tabletWidth = 768;
-// const btnDown = document.querySelector('.JS-btnDown');
-//
-// if (currentWidth > 768) {
-//     btnDown.addEventListener('click', function(){
-//         alert('qq')
-//     })
-// }
-
-
-// ONE PAGE SCROLL
 
 $('[data-index]').on('click', function (e) {
     const target = parseInt($(e.currentTarget).attr('data-index'));
@@ -38,8 +28,8 @@ $(".main").onepage_scroll({
     direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".
 });
 
-$('.btn').on('click', function() {
-    if(currentWidth <= tabletWidth) {
+$('.btn').on('click', function () {
+    if (currentWidth <= tabletWidth) {
         $('.btn').attr('href', '#contacts');
     }
     else {
@@ -47,15 +37,14 @@ $('.btn').on('click', function() {
     }
 });
 
-$('.btn-down__link').on('click', function() {
-    if(currentWidth <= tabletWidth) {
+$('.btn-down__link').on('click', function () {
+    if (currentWidth <= tabletWidth) {
         $('.btn-down__link').attr('href', '#features');
     }
     else {
         $('.btn-down__link').removeAttr('href', '#features');
     }
 });
-
 
 // MOBILE MENU
 
@@ -93,7 +82,6 @@ for (let i = 0; i < mobileMenuLink.length; i++) {
     });
 }
 
-
 // TEAM ACCO
 
 const accoTeam = document.getElementsByClassName('accordeon-team__desc-people');
@@ -118,6 +106,7 @@ for (let i = 0; i < accoTeam.length; i++) {
 const accoMenuBtn = document.getElementsByClassName('accordeon-menu__list-btn');
 const accoMenuDesc = document.getElementsByClassName('accordeon-menu__hidden-desc');
 
+
 for (let i = 0; i < accoMenuBtn.length; i++) {
     accoMenuBtn[i].addEventListener('click', function () {
         for (let y = 0; y < accoMenuDesc.length; y++) {
@@ -132,7 +121,7 @@ for (let i = 0; i < accoMenuBtn.length; i++) {
                 accoMenuDesc[i].classList.remove('accordeon-menu__hidden-desc--active');
             }
         }
-    });
+    })
 }
 
 // BURGER MENU
@@ -142,31 +131,43 @@ const burgerMenuList = document.getElementsByClassName('carousel-burgers__menu-l
 
 for (let i = 0; i < burgerMenu.length; i++) {
     burgerMenu[i].addEventListener('click', function () {
-        for (let y = 0; y < burgerMenuList.length; y++) {
-            let activeClass = burgerMenuList[i].classList.contains('carousel-burgers__menu-list--active');
-            if (!activeClass) {
-                for (let x = 0; x < burgerMenuList.length; x++) {
-                    burgerMenuList[x].classList.remove('carousel-burgers__menu-list--active');
-                    burgerMenuList[i].classList.add('carousel-burgers__menu-list--active');
+            for (let y = 0; y < burgerMenuList.length; y++) {
+                let activeClass = burgerMenuList[i].classList.contains('carousel-burgers__menu-list--active');
+                if (!activeClass) {
+                    for (let x = 0; x < burgerMenuList.length; x++) {
+                        burgerMenuList[i].classList.add('carousel-burgers__menu-list--active');
+                    }
+                }
+                if (activeClass) {
+                    burgerMenuList[i].classList.remove('carousel-burgers__menu-list--active');
                 }
             }
-            if (activeClass) {
-                burgerMenuList[i].classList.remove('carousel-burgers__menu-list--active');
-            }
         }
-    });
+    );
 }
+
 
 // POPUP COMMENTS
 
-const commentItem = document.querySelectorAll('.btn__more');
-const commentClose = document.querySelectorAll('.full-review__close');
+const getBtnMore = document.querySelectorAll('.btn__more');
+const closeBtn = document.querySelectorAll('.full-review__close');
 const fullReview = document.querySelectorAll('#full-review');
+const textTitle = document.querySelectorAll('.comments__title');
+const textItem = document.querySelectorAll('.comments__text');
+const addTextItem = document.querySelector('.full-review__content-item');
+const addTitleItem = document.querySelector('.full-review__title');
+const commentItem = document.querySelectorAll('.comments__item');
 
+$(commentItem).click(function () {
+    let getText = $(this).find(textItem).text();
+    let getTitle = $(this).find(textTitle).text();
+    $(addTextItem).text(getText);
+    $(addTitleItem).text(getTitle);
+});
 
-for (let i = 0; i < commentItem.length; i++) {
-    commentItem[i].addEventListener('click', function () {
-        let activeClass = commentItem[i].classList.contains('full-review--active');
+for (let i = 0; i < getBtnMore.length; i++) {
+    getBtnMore[i].addEventListener('click', function () {
+        let activeClass = getBtnMore[i].classList.contains('full-review--active');
         if (!activeClass) {
             for (let x = 0; x < fullReview.length; x++) {
                 fullReview[x].classList.add('full-review--active');
@@ -174,9 +175,8 @@ for (let i = 0; i < commentItem.length; i++) {
             }
         }
     });
-
-    for (let y = 0; y < commentClose.length; y++) {
-        commentClose[y].addEventListener('click', function () {
+    for (let y = 0; y < closeBtn.length; y++) {
+        closeBtn[y].addEventListener('click', function () {
             fullReview[i].classList.remove('full-review--active');
             document.body.style.overflow = 'auto';
         });
@@ -191,7 +191,7 @@ slidr.create('best-burgers__slider').start();
 
 $('#order-form').on('submit', submitForm);
 
-function submitForm (ev) {
+function submitForm(ev) {
     ev.preventDefault();
 
     var form = $(ev.target),
@@ -199,16 +199,16 @@ function submitForm (ev) {
         url = form.attr('action'),
         type = form.attr('method');
 
-    ajaxForm(form).done(function(msg) {
+    ajaxForm(form).done(function (msg) {
         var mes = msg.mes,
             status = msg.status;
 
         if (status === 'OK') {
             form.append('<p class="success">' + mes + '</p>');
-        } else{
+        } else {
             form.append('<p class="error">' + mes + '</p>');
         }
-    }).fail(function(jqXHR, textStatus) {
+    }).fail(function (jqXHR, textStatus) {
         alert("Request failed: " + textStatus);
     });
 
@@ -222,7 +222,7 @@ var ajaxForm = function (form) {
     return $.ajax({
         type: 'POST',
         url: url,
-        dataType : 'JSON',
+        dataType: 'JSON',
         data: data
     })
 };
@@ -281,7 +281,7 @@ function init() {
             balloonContent: placemarks[i].balloonContent.join('')
         }, {
             iconLayout: 'default#image',
-            iconImageHref: '../img/forsprite/svg/map-marker.svg',
+            iconImageHref: 'img/sprites/map-marker.svg',
             iconImageSize: [46, 57],
             iconImageOffset: [-23, -57]
         });
@@ -289,7 +289,7 @@ function init() {
 
     const clusterer = new ymaps.Clusterer({
         clusterIcons: [{
-            href: '../img/forsprite/png/burger-promo.png',
+            href: 'img/burger-promo.png',
             size: [100, 100],
             offset: [-50, -50]
         }],
