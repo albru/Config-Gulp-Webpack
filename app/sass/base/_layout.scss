@@ -1,7 +1,7 @@
-@import "../misc/variables.scss";
-@import "../misc/functions.scss";
-@import "../misc/mixins.scss";
-@import "../misc/media.scss";
+@import "../misc/_variables";
+@import "../misc/_functions";
+@import "../misc/_mixins";
+@import "../misc/_media";
 
 html {
   @include laptop {
