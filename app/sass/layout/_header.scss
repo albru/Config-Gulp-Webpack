@@ -1,8 +1,14 @@
-.hello-world {
-  font-size: rem(55px);
-  color: green;
+.div {
+  color: red;
 }
 
-.razdva {
-  color: red;
+.search {
+  color: blue;
+}
+
+a {
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
 }

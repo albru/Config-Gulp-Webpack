@@ -28,14 +28,16 @@ const
     size = require('gulp-size'),
     buffer = require('vinyl-buffer'),
     merge = require('merge-stream'),
-    htmlmin = require('gulp-htmlmin');
+    htmlmin = require('gulp-htmlmin'),
+    pug = require('gulp-pug');
 
 // SOURCES
 
 const src = {
-    baseApp: 'app',
-    baseDist: 'dist',
+    baseApp: 'app/',
+    baseDist: 'dist/',
     htmlTake: 'app/*.html',
+    pugTake: 'app/pug/**/*.pug',
     scssTake: 'app/sass/**/*.scss',
     jsTake: 'app/js/*.js',
     phpTake: 'app/*.php',
@@ -77,6 +79,34 @@ gulp.task('html', function () {
     return gulp.src(src.htmlTake)
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest(src.baseDist));
+});
+
+// PUG
+
+gulp.task('pug', function () {
+    console.log('---------- Сборка Pug');
+    // Pug-фильтр, выводящий содержимое pug-файла в виде форматированного текста
+    const filterShowCode = function (text, options) {
+        var lines = text.split('\n');
+        var result = '<pre class="code">\n';
+        if (typeof(options['first-line']) !== 'undefined') result = result + '<code>' + options['first-line'] + '</code>\n';
+        for (var i = 0; i < (lines.length - 1); i++) { // (lines.length - 1) для срезания последней строки (пустая)
+            result = result + '<code>' + lines[i] + '</code>\n';
+        }
+        result = result + '</pre>\n';
+        result = result.replace(/<code><\/code>/g, '<code>&nbsp;</code>');
+        return result;
+    };
+
+    return gulp.src(src.pugTake)
+        .pipe(plumber())
+        .pipe(pug({
+            filters: {
+                'show-code': filterShowCode
+            }
+        }))
+        .pipe(gulp.dest(src.baseApp))
+        .pipe(browserSync.stream());
 });
 
 // CSS
@@ -144,15 +174,16 @@ gulp.task('browser-sync', function () {
         },
         notify: true,
         port: 8080,
-        open: true
+        open: false
     });
+    gulp.watch(src.pugTake, gulp.series('pug'));
     gulp.watch(src.scssTake, gulp.series('scss'));
-    gulp.watch(src.htmlTake).on('change' , browserSync.reload);
-    gulp.watch(src.phpTake).on('change' , browserSync.reload);
-    gulp.watch(src.jsTake).on('change' , browserSync.reload);
+    gulp.watch(src.htmlTake).on('change', browserSync.reload);
+    gulp.watch(src.phpTake).on('change', browserSync.reload);
+    gulp.watch(src.jsTake).on('change', browserSync.reload);
 });
 
-gulp.task('watch', gulp.series(['css-libs', 'jslibs','browser-sync']), function () {
+gulp.task('watch', gulp.series(['css-libs', 'jslibs', 'browser-sync']), function () {
 
 });
 

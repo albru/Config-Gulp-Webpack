@@ -2,10 +2,6 @@
 .gulp-scss-cache
 .sass-cache
 node_modules
-.bowerrc
-bower.json
-gulpfile.js
-package.json
 package-lock.json
 
 
