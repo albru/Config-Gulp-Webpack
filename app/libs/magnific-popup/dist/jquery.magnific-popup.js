@@ -1518,7 +1518,7 @@ $.magnificPopup.registerModule('zoom', {
 
 			/*
 
-			Animating left + top + width/height looks glitchy in Firefox, but perfect in Chrome. And vice-versa.
+			Animating sldrLeftArrow + top + width/height looks glitchy in Firefox, but perfect in Chrome. And vice-versa.
 
 			 */
 			var obj = {
