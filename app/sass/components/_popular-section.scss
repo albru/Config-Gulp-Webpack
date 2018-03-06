@@ -1,0 +1,22 @@
+@import "../misc/_variables";
+@import "../misc/_functions";
+@import "../misc/_mixins";
+@import "../misc/_media";
+
+.section__main-item-promo {
+  background-image: url('../../img/5512.jpg');
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-position: 0 50%;
+  margin-bottom: 0;
+  &-title {
+    position: relative;
+    color: $softwhite;
+    &:after {
+      background-color: $softgreen;
+    }
+    &:before {
+      background-color: $softgreen;
+    }
+  }
+}

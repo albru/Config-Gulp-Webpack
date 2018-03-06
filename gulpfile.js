@@ -35,7 +35,10 @@ const
 const src = {
   baseApp: 'app/',
   baseDist: 'dist/',
-  htmlTake: 'app/*.html',
+  htmlTake: [
+    'app/html/index.html',
+    'app/html/pages/*.html'
+  ],
   pugTake: 'app/pug/**/*.pug',
   scssTake: 'app/sass/**/*.scss',
   jsTake: [
@@ -56,23 +59,22 @@ const src = {
     'app/css/libs.min.css'
   ],
   cssLibsTake: [
-    'app/libs/normalize-css/normalize.css',
-    'app/libs/magnific-popup/dist/magnific-popup.css'
+    'node_modules/normalize.css/normalize.css'
   ],
   jsLibsTake: [
-    'app/libs/jquery/dist/jquery.min.js',
-    'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js'
+    'node_modules/jquery/dist/jquery.slim.min.js'
   ],
 
   svgPut: 'app/img/sprites/',
   pngPut: 'app/img/sprites/',
-  cssPut: 'app/css',
-  jsPut: 'app/js',
+  pugPut: 'app/html/',
+  cssPut: 'app/css/',
+  jsPut: 'app/js/',
 
-  imgDist: 'dist/img',
-  jsDist: 'dist/js',
-  cssDist: 'dist/css',
-  fontsDist: 'dist/fonts'
+  imgDist: 'dist/img/',
+  jsDist: 'dist/js/',
+  cssDist: 'dist/css/',
+  fontsDist: 'dist/fonts/'
 };
 
 // HTML
@@ -80,7 +82,7 @@ const src = {
 gulp.task('html', function () {
   return gulp.src(src.htmlTake)
     // .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest(src.baseDist));
+    .pipe(gulp.dest(src.baseDist + 'html'));
 });
 
 // PUG
@@ -91,7 +93,7 @@ gulp.task('pug', function () {
     .pipe(pug({
       pretty: true
     }))
-    .pipe(gulp.dest(src.baseApp))
+    .pipe(gulp.dest(src.pugPut))
     .pipe(browserSync.stream());
 });
 
@@ -148,7 +150,8 @@ gulp.task('jslibs', function () {
 gulp.task('browser-sync', function () {
   browserSync.init({
     server: {
-      baseDir: src.baseApp
+      baseDir: src.baseApp,
+      directory: true
     },
     notify: true,
     port: 8080,

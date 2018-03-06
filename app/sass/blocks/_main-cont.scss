@@ -1,0 +1,25 @@
+@import "../misc/variables";
+@import "../misc/functions";
+@import "../misc/mixins";
+@import "../misc/media";
+
+.main {
+  margin: 0 auto;
+  position: relative;
+  max-width: $laptop;
+  display: flex;
+
+
+}
+
+.main__container {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex: 3;
+  margin-top: rem(63px);
+  padding: rem(30px) rem(25px);
+}

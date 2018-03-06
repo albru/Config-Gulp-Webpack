@@ -4,6 +4,23 @@
 @import "misc/media.scss";
 @import "base/fonts";
 @import "base/layout";
-@import "layout/_head";
+@import "blocks/main-cont";
+@import "blocks/section";
+@import "blocks/aside";
+@import "blocks/header";
+@import "blocks/section";
+@import "components/_health-section";
+@import "components/_popular-section";
+@import "components/_people-section";
+@import "components/_finance-section";
+@import "components/_tech-section";
+@import "components/_travel-section";
+@import "components/_fetured-topics";
+@import "components/main-nav";
+@import "components/logo";
+@import "components/buttons";
+@import "components/slider-main";
+@import "blocks/footer";
+
 
 

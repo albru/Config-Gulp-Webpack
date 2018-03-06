@@ -1,0 +1,12 @@
+@import "../misc/variables.scss";
+@import "../misc/functions.scss";
+@import "../misc/mixins.scss";
+@import "../misc/media.scss";
+
+.main-logo {
+  font-family: $pro;
+  font-size: rem(45px);
+  color: $blue;
+  font-weight:400;
+  letter-spacing: rem(-3px);
+}

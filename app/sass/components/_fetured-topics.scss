@@ -1,0 +1,40 @@
+@import "../misc/_variables";
+@import "../misc/_functions";
+@import "../misc/_mixins";
+@import "../misc/_media";
+
+.featured-topics {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: rem(20px);
+  padding: rem(30px) rem(40px);
+  border-bottom: 1px solid $blue;
+  box-shadow: 2px 0 4px -2px $bordergray, -2px 0 4px -2px $bordergray, 0 -2px 4px -2px $bordergray;
+  &__title {
+    color: $fcmed;
+    line-height:0;
+    margin-bottom: rem(25px);
+    width: 100%;
+  }
+  &__text {
+    color: $fcmed2;
+  }
+  &__link {
+    display: flex;
+    margin-left: auto;
+    margin-top: rem(55px);
+    font-size: $fz20;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:after {
+      @include commas($orange, rem(30px));
+      margin-left: rem(9px);
+      margin-top: rem(-9px);
+      color: $blue;
+    }
+  }
+}
