@@ -86,26 +86,10 @@ gulp.task('html', function () {
 // PUG
 
 gulp.task('pug', function () {
-  console.log('---------- Сборка Pug');
-  // Pug-фильтр, выводящий содержимое pug-файла в виде форматированного текста
-  const filterShowCode = function (text, options) {
-    var lines = text.split('\n');
-    var result = '<pre class="code">\n';
-    if (typeof(options['first-line']) !== 'undefined') result = result + '<code>' + options['first-line'] + '</code>\n';
-    for (var i = 0; i < (lines.length - 1); i++) { // (lines.length - 1) для срезания последней строки (пустая)
-      result = result + '<code>' + lines[i] + '</code>\n';
-    }
-    result = result + '</pre>\n';
-    result = result.replace(/<code><\/code>/g, '<code>&nbsp;</code>');
-    return result;
-  };
-
   return gulp.src(src.pugTake)
     .pipe(plumber())
     .pipe(pug({
-      filters: {
-        'show-code': filterShowCode
-      }
+      pretty: true
     }))
     .pipe(gulp.dest(src.baseApp))
     .pipe(browserSync.stream());
