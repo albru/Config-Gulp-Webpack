@@ -4,23 +4,27 @@
 @import "misc/media.scss";
 @import "base/fonts";
 @import "base/layout";
-@import "blocks/main-cont";
-@import "blocks/section";
+@import "animation/animation";
 @import "blocks/aside";
+@import "blocks/my-works-section-header";
+@import "blocks/my-works-section-works";
+@import "blocks/my-works-section-about";
 @import "blocks/header";
-@import "blocks/section";
-@import "components/_health-section";
-@import "components/_popular-section";
-@import "components/_people-section";
-@import "components/_finance-section";
-@import "components/_tech-section";
-@import "components/_travel-section";
-@import "components/_fetured-topics";
-@import "components/main-nav";
-@import "components/logo";
-@import "components/buttons";
-@import "components/slider-main";
+@import "blocks/blog-section-tabs";
+@import "blocks/blog-section-header";
+@import "pages/login";
+@import "pages/welcome";
+@import "pages/my-works";
+@import "modules/mobile-log-form";
+@import "modules/main-nav";
+@import "modules/logo";
+@import "modules/buttons";
+@import "modules/welcome-form";
+@import "modules/contacts-form.scss";
+@import "modules/mobile-menu.scss";
 @import "blocks/footer";
+@import "blocks/footer-big";
+
 
 
 

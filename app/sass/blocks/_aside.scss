@@ -3,18 +3,3 @@
 @import "../misc/mixins";
 @import "../misc/media";
 
-.aside {
-  display: flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  align-items:center;
-  flex: 1;
-  margin-top: rem(63px);
-  padding: rem(30px) rem(25px);
-  &__item-partners {
-    width: rem(300px);
-    height: rem(230px);
-    border: 0.5px solid $fclight05;
-    border-radius: rem(3px);
-  }
-}

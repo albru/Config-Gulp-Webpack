@@ -1,0 +1,86 @@
+@import "../misc/variables.scss";
+@import "../misc/functions.scss";
+@import "../misc/mixins.scss";
+@import "../misc/media.scss";
+
+.wrapper.index {
+  background-image: url('../img/back/mountains.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+}
+
+.welcome-form__wrapper {
+  position: relative;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height:650px;
+  height:100%;
+  width: 100%;
+  perspective: 1200;
+
+}
+
+.welcome__link {
+  position: absolute;
+  @include phones {
+    top: 3%;
+  }
+  @include tablets {
+    top: 3%;
+    left: 90%;
+  }
+
+  left: 50%;
+  transform:translate(-50% 0);
+  color: $white;
+  border: 1px solid $white;
+  border-radius: rem(5px);
+  padding: rem(15px) rem(20px);
+  margin-top: rem(20px);
+  z-index: 10;
+}
+
+.welcome-form__container {
+  width: 90%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-form {
+  @include phones {
+    width: 300px;
+    height: 405px;
+  }
+  @include tablets {
+    width: 348px;
+    height: 405px;
+  }
+  @include laptop {
+    width: 380px;
+    height: 405px;
+  }
+  border-radius: rem(10px);
+  position: absolute;
+  text-align: center;
+  background-color: $whiteOp;
+  &__fieldset {
+    width: 100%;
+    outline:none;
+    border: none;
+  }
+}
+.run-index-animation {
+  animation: turn 3s forwards;
+}
+
+.back{
+  z-index: 2;
+  backface-visibility: hidden;
+}
+

@@ -1,78 +1,43 @@
-@import "../misc/variables";
-@import "../misc/functions";
-@import "../misc/mixins";
-@import "../misc/media";
+@import "../misc/variables.scss";
+@import "../misc/functions.scss";
+@import "../misc/mixins.scss";
+@import "../misc/media.scss";
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: $softwhite;
-  width: 100%;
-  box-shadow: 0 4px 2px -2px $bordergray;
-  z-index: 10000;
-  &__wrap {
-    position: relative;
-    max-width: $laptop;
-    @include flex;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__container {
+    padding: rem(10px);
   }
-  &__search {
-    width: rem(175px);
-    height: rem(35px);
-    border-radius: rem(3px);
-    margin-left: rem(20px);
-    padding: rem(10px) rem(25px) rem(10px) rem(5px);
-    text-align: center;
-    border: 0.5px solid $fclight05;
-    &-icon {
-      position: absolute;
-      right: rem(25px);
-      display: inline-block;
-      width: rem(15px);
-      height: rem(15px);
-      border: rem(3px) solid $fclight;
-      position: relative;
-      border-radius: rem(25px);
-      &:before {
-        content: "";
-        display: inline-block;
-        position: absolute;
-        right: rem(-7px);
-        bottom: rem(-4px);
-        border-width: 0;
-        background: $fclight;
-        width: rem(10px);
-        height: rem(3px);
-        transform: rotate(45deg);
-      }
-      &:hover {
-        border-color: $fcmed2;
-      }
-      &:hover:before {
-        background-color: $fcmed2;
-      }
-    }
-    &:focus {
-      text-align: left;
-      outline: none;
-    }
-    @include placecolor($fclight);
+  &__wrapper {
+    width: 100%;
+    z-index: 999;
   }
-  &__sub-btn {
-    background-color: $violet;
-    font-family: $pro;
-    font-weight: 600;
-    border-radius: rem(3px);
-    border: none;
-    margin-left: rem(20px);
+  &__socials-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__socials-list-item-link {
+    width: rem(50px);
+    height: rem(50px);
+    margin-right: rem(30px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    color: $white;
-    padding: rem(8px) rem(15px);
-    &:hover {
-      background-color: darken($violet, 10%);
+    &:hover > .header__social-icon {
+      fill: $white;
     }
   }
+  &__social-icon {
+    fill: $whiteOp;
+    width: 80%;
+    height: 80%;
+  }
+}
+
+.div {
+  margin-right: rem(15px);
 }

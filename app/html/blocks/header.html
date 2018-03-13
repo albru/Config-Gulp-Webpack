@@ -1,18 +1,33 @@
 
-<header class="header">
-  <div class="header__wrap">
-    <div class="main-logo">hepfit</div>
-    <nav class="main-nav"><a class="main-nav__link" href="#">Темы</a>
-      <ul class="main-nav__list">
-        <li class="main-nav__list-item"><a class="main-nav__list-item-link" href="#">Здоровье</a></li>
-        <li class="main-nav__list-item"><a class="main-nav__list-item-link" href="#">Люди</a></li>
-        <li class="main-nav__list-item"><a class="main-nav__list-item-link" href="#">Финансы</a></li>
-        <li class="main-nav__list-item"><a class="main-nav__list-item-link" href="#">Технологии</a></li>
-        <li class="main-nav__list-item"><a class="main-nav__list-item-link" href="#">Путешествия</a></li>
+<div class="header__wrapper">
+  <div class="header__container">
+    <header class="header">
+      <ul class="header__socials-list">
+        <li class="header__socials-list-item"><a class="header__socials-list-item-link">
+            <svg class="header__social-icon vk">
+              <use xlink:href="../../img/sprites/sprite-svg.svg#vk"></use>
+            </svg></a></li>
+        <li class="header__socials-list-item"><a class="header__socials-list-item-link">
+            <svg class="header__social-icon git">
+              <use xlink:href="../../img/sprites/sprite-svg.svg#github"></use>
+            </svg></a></li>
+        <li class="header__socials-list-item"><a class="header__socials-list-item-link">
+            <svg class="header__social-icon in">
+              <use xlink:href="../../img/sprites/sprite-svg.svg#in"></use>
+            </svg></a></li>
       </ul>
-    </nav>
-    <button class="btn header__sub-btn">Подписаться</button>
-    <input class="search header__search" type="search" name="search" placeholder="Поиск"/>
-    <div class="header__search-icon"></div>
+      <nav class="mobile-menu">
+        <input class="mobile-menu__checkbox" type="checkbox" id="mobile-checkbox"/>
+        <label class="mobile-menu__btn-container" for="mobile-checkbox"><span class="mobile-menu__btn" id="mobile-btn"></span></label>
+        <div class="mobile-menu__container" id="mobile-cont">
+          <ul class="mobile-menu__list">
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="../pages/my-works.html">Мои работы</a></li>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="../pages/about.html">Обо мне</a></li>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="../pages/blog.html">Блог</a></li>
+            <li class="mobile-menu__item"><a class="mobile-menu__link" href="../pages/login.html">Авторизация</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
   </div>
-</header>
+</div>

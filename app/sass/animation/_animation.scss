@@ -1,0 +1,10 @@
+@import "../misc/_variables";
+@import "../misc/_functions";
+@import "../misc/_mixins";
+@import "../misc/_media";
+
+@keyframes turn {
+  to {
+    transform: rotateY(180deg);
+  }
+}

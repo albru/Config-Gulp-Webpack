@@ -3,129 +3,24 @@
 @import "../misc/mixins";
 @import "../misc/media";
 
-.footer {
-  box-shadow: rgba(0, 0, 0, 0.8) 0 3px 10px inset;
-  background-color: $softgray;
-  &__wrap {
-    position: relative;
-    max-width: $laptop;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  &__desc-cont {
-    padding: rem(30px);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  &__desc-left {
-    width: 50%;
-    margin-right: 10%;
-  }
-  &__desc {
-    border-bottom: 1px solid $fcmed;
-  }
-  &__links {
-    border-bottom: 1px solid $fclight05;
-    padding: rem(30px) 0;
-    margin-bottom: rem(30px);
-  }
-  &__link {
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  &__links-list {
-    display: inline-block;
-    margin-right: rem(70px);
-  }
-  &__links-item {
-    &:not(:last-of-type) {
-      margin-bottom: rem(15px);
-    }
-  }
-  &__desc-right {
-    position: relative;
-    width: 40%;
-    background-color: $white;
-    padding: 0 rem(40px);
-    border: 1px solid $fclight;
-  }
-  &__sub-form {
-
-  }
-  &__sub-form-privacy {
-    font-size: $fz11;
-    margin-bottom: rem(40px);
-    font-family: $sans;
-  }
-  &__desc-text {
-    color: $fcmed2;
-    margin-bottom: rem(30px);
-    font-family: $sans;
-  }
-  &__desc-right-socials {
-    position: absolute;
-    color: $blue;
-    left: 50%;
-    bottom: rem(-35px);
-    transform: translateX(-50%);
-  }
-  &__sub-form-title {
-    font-size: $fz30;
-    line-height: $lhmin;
-    color: $fcmed2;
-    margin: rem(15px) 0;
-  }
-  &__sub-form-text {
-    display: inline-block;
-    margin-bottom: rem(15px);
-    color: $fcmed2;
-    font-size:$fz20;
-  }
-  &__sub-form-email {
-    width: 100%;
-    height: rem(35px);
-    margin-bottom: rem(10px);
-    border-radius: rem(3px);
-    border: 1px solid $fclight;
-    background-color: $softgray;
-    color: $fclight;
-    padding: rem(5px);
-    font-weight: bold;
-  }
-  &__sub-form-submit {
-    width: 100%;
-    height: rem(35px);
-    color: $white;
-    background-color: $darkblue;
-    border: none;
-    border-radius: rem(3px);
-    font-weight: bold;
-    margin-bottom: rem(20px);
-    &:hover {
-      background-color: darken($darkblue, 10%);
-    }
-  }
-  &__copyright {
-    background-color: $white;
-    text-align: center;
-    border-top: 1px solid $fcmed2;
-
-  }
-  &__copyright-wrap {
-    margin: 0 auto;
-    width: 50%;
-  }
-  &__copyright-text {
-    margin: 0;
-    padding: rem(20px) 0;
-    color: $fcmed;
-    font-family: $sans;
-    font-size: $fz14;
-  }
+.footer__wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform:translate(-50% 0);
 }
+
+.footer {
+  width: 100vw;
+  padding: rem(10px);
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap: wrap;
+  color: $whiteOp;
+  font-size:$fz18;
+  font-weight:300;
+}
+
 
 

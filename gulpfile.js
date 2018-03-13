@@ -62,7 +62,8 @@ const src = {
     'node_modules/normalize.css/normalize.css'
   ],
   jsLibsTake: [
-    'node_modules/jquery/dist/jquery.slim.min.js'
+    'node_modules/jquery/dist/jquery.js',
+    'app/libs/jslibs/jquery.easytabs.js'
   ],
 
   svgPut: 'app/img/sprites/',
@@ -249,8 +250,8 @@ gulp.task('sprite:svg', function (callback) {
     .pipe(svgstore({inlineSvg: true}))
     .pipe(cheerio({
       run: function ($) {
-        // $('path').removeAttr('fill');
-        // $('g').removeAttr('fill');
+        $('path').removeAttr('fill');
+        $('g').removeAttr('fill');
         $('svg').attr('style', 'display:none');
       },
       parserOptions: {

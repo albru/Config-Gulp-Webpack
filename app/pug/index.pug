@@ -1,9 +1,17 @@
 doctype html
 html(lang = 'ru-RU')
   head
-    link(rel="stylesheet", href="../css/main.css")
+    include layout/index-prop
+    title Portfolio
   body
+    .wrapper.index
+      .container
+        .welcome-form__wrapper
+          a(href='pages/login.html').welcome__link Авторизоваться
+          .welcome-form__container
+            include modules/welcome-form
+            include modules/login-form
+        include blocks/footer
+  include layout/index-scripts
 
-  script(src="../js/libs.min.js")
-  script(src="../js/bundle.js")
 

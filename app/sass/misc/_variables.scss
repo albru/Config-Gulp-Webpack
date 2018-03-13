@@ -1,40 +1,45 @@
-$desktop: 1281px;
-$laptop: 1025px;
+$desktop: 1800px;
+$laptop: 1200px;
 $tablets: 801px;
-$phones: 480px;
+$phones: 320px;
 
-$pro: 'Maven Pro',
-Helvetica,
-sans-serif;
-$sans: 'Open Sans',
-Helvetica,
-sans-serif;
-$lora: 'Lora',
-Helvetica,
-sans-serif;
 
-$bordergray: rgba(154, 165, 173, 1);
-$softwhite: rgba(247, 247, 247, 1);
-$softgray: rgba(224, 224, 224, 1);
-$softgreen: rgba(206, 224, 128, 1);
-$fclight05: rgba(153, 153, 153, .5);
-$fclight: rgba(153, 153, 153, 1);
-$fcmed: rgba(33, 30, 31, 1);
-$fcmed2: rgba(84, 84, 84, 1);
-$fcmed3: rgba(105, 105, 105, 1);
-$links: rgba(0, 125, 164, 1);
-$linkshov: rgba(236, 28, 130, 1);
-$blue: rgba(71, 146, 178, 1);
-$darkblue: rgba(24, 117, 154, 1);
-$orange: rgba(240, 138, 114, 1);
-$violet: rgba(128, 108, 173, 1);
+$rob: 'Roboto',
+Helvetica,
+sans-serif;
+$awes: 'FontAwesome',
+Helvetica,
+sans-serif;
+$distr: 'BERNIER Distressed',
+Helvetica,
+sans-serif;
+$shade: 'BERNIER Shade',
+Helvetica,
+sans-serif;
+$bern: 'BERNIER',
+Helvetica,
+sans-serif;
+$softwhite3: rgba(240, 239, 233, 1);
+$softwhite2: rgba(239, 235, 224, 1);
+$softwhite: rgba(250, 248, 240, 1);
+$gray: rgba(69, 90, 100, 1);
+$grayOp: rgba(69, 90, 100, .1);
+$lgray: rgba(208, 209, 209, 1);
+$lgray2: rgba(125, 134, 137, 1);
+$whiteOp: rgba(255, 255, 255, .8);
 $white: rgba(255, 255, 255, 1);
-$lightblue: rgba(68, 194, 214, 1);
+$green: rgba(12, 179, 160, 1);
+$greenOp: rgba(12, 179, 160, .8);
+$footer: rgba(49, 63, 67, 1);
 
-$fz11: rem(11px);
+
 $fz14: rem(14px);
-$fz20: rem(20px);
-$fz30: rem(30px);
+$fz16: rem(16px);
+$fz18: rem(18px);
+$fz21: rem(21px);
+$fz25: rem(25px);
+$fz35: rem(35px);
+$fz30: rem(40px);
 
 $lhmin: 1.15;
 

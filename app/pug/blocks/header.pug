@@ -1,9 +1,19 @@
-header.header
-  .header__wrap
-    include ../modules/logo
-    include ../modules/main-nav
-    button.btn.header__sub-btn Подписаться
-    input(type='search', name='search', placeholder='Поиск').search.header__search
-    .header__search-icon
+.header__wrapper
+  .header__container
+    header.header
+      ul.header__socials-list
+        li.header__socials-list-item
+          a.header__socials-list-item-link
+            svg.header__social-icon.vk
+              use(xlink:href='../../img/sprites/sprite-svg.svg#vk')
+        li.header__socials-list-item
+          a.header__socials-list-item-link
+            svg.header__social-icon.git
+              use(xlink:href='../../img/sprites/sprite-svg.svg#github')
+        li.header__socials-list-item
+          a.header__socials-list-item-link
+            svg.header__social-icon.in
+              use(xlink:href='../../img/sprites/sprite-svg.svg#in')
+      include ../modules/mobile-menu
 
 

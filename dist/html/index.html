@@ -1,16 +1,84 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/libs.min.css">
+    <link rel="icon" type="image/png" href="">
+    <title>Portfolio</title>
   </head>
   <body>
-    <div class="dadas">prive</div>
-    <div class="shabedi">pakush
-      <div class="pakush">shabedi</div>
-      <ul class="sss">privet
-        <li class="ss"></li>
-        <li class="ss">asda</li>
-      </ul>
+    <div class="wrapper index">
+      <div class="container">
+        <div class="welcome-form__wrapper"><a class="welcome__link" href="pages/login.html">Авторизоваться</a>
+          <div class="welcome-form__container">
+            <form class="welcome-form back">
+              <fieldset class="welcome-form__fieldset"><img class="welcome-form__my-photo" src="../img/my-photo.jpg">
+                <h2 class="welcome-form__my-name">Александр Брюханов</h2>
+                <h3 class="welcome-form__title">Личный сайт веб разработчика</h3>
+                <div class="welcome-form__social"><a class="welcome-form__social-link" href="https://vk.com/brukhanov" target="_blank">
+                    <svg class="welcome-form__social-icon vk">
+                      <use xlink:href="../img/sprites/sprite-svg.svg#vk"></use>
+                    </svg></a><a class="welcome-form__social-link" href="https://github.com/sashabrukh" target="_blank">
+                    <svg class="welcome-form__social-icon git">
+                      <use xlink:href="../img/sprites/sprite-svg.svg#github"></use>
+                    </svg></a><a class="welcome-form__social-link in" href="#">
+                    <svg class="welcome-form__social-icon">
+                      <use xlink:href="../img/sprites/sprite-svg.svg#in"></use>
+                    </svg></a></div>
+                <div class="welcome-form__buttons sss">
+                  <div class="welcome-form__buttons--left"><a class="welcome-form__portfolio welcome-form__btn" href="pages/my-works.html">Мои работы</a></div>
+                  <div class="welcome-form__buttons--middle"><a class="welcome-form__about welcome-form__btn" href="pages/about.html">Обо мне</a></div>
+                  <div class="welcome-form__buttons--right"><a class="welcome-form__blog welcome-form__btn" href="pages/blog.html">Блог</a></div>
+                </div>
+              </fieldset>
+            </form>
+            <form class="welcome-form">
+              <fieldset class="welcome-form__fieldset">
+                <div class="log-form__title">
+                  <h2 class="log-form__title-item">Авторизуйтесь</h2>
+                </div>
+                <div class="log-form__label-cont">
+                  <label class="log-form__label-login" for="login">icon</label>
+                  <input class="log-form__login" type="text" name="login" id="login" placeholder="Логин">
+                </div>
+                <div class="log-form__label-cont">
+                  <label class="log-form__label-pw" for="password">icon</label>
+                  <input class="log-form__pw" type="password" id="password" name="password" placeholder="Пароль">
+                </div>
+                <div class="log-form__captcha-cont">
+                  <input class="log-form__captcha" type="checkbox" id="log-form__captcha" name="captcha" value="captcha">
+                  <label class="log-form__label" for="log-form__captcha">Я человек</label>
+                </div>
+                <div class="log-form__captcha-question">Вы точно не робот?</div>
+                <div class="log-form__radio-cont">
+                  <div class="log-form__radio-wrap left">
+                    <input class="log-form__radio" type="radio" id="log-form__label-radio--yes" name="robot" value="yes">
+                    <label class="log-form__label-radio yes" for="log-form__label-radio--yes"></label><span class="log-form__radio-text yes">Да</span>
+                  </div>
+                  <div class="log-form__radio-wrap right">
+                    <input class="log-form__radio" type="radio" id="log-form__label-radio--no" name="robot" value="no">
+                    <label class="log-form__label-radio no" for="log-form__label-radio--no"></label><span class="log-form__radio-text no">Не уверен</span>
+                  </div>
+                </div>
+                <div class="log-form__buttons">
+                  <div class="log-form__buttons--left"><a class="log-form__to-main" href="../index.html">На главную</a></div>
+                  <div class="log-form__buttons--right">
+                    <button class="log-form__submit" type="submit">Войти</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="footer__wrapper">
+          <div class="footer__container">
+            <footer class="footer"><span class="footer__rights">Александр Брюханов |</span><span class="footer__text">создано с любовью в LoftSchool | 2016</span></footer>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
   <script src="../js/libs.min.js"></script>
