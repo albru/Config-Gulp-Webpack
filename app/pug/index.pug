@@ -1,17 +1,9 @@
-doctype html
-html(lang = 'ru-RU')
+<!DOCTYPE html>
+html(lang="en")
   head
-    include layout/index-prop
-    title Portfolio
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Document
   body
-    .wrapper.index
-      .container
-        .welcome-form__wrapper
-          a(href='pages/login.html').welcome__link Авторизоваться
-          .welcome-form__container
-            include modules/welcome-form
-            include modules/login-form
-        include blocks/footer
-  include layout/index-scripts
-
 
