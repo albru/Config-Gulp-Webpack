@@ -1,0 +1,38 @@
+$color: peachpuff;
+
+.main {
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  color: green;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.square {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  align-items: center;
+  &1{
+    background-color: $color;
+  }
+  &2{
+    background-color: plum;
+    filter: opacity(30%);
+    border-radius: 50%;
+  }
+  &3{
+    display: grid;
+    transition: all .5s;
+    user-select: none;
+    background: linear-gradient(to bottom, white, black);
+  }
+}

@@ -82,7 +82,7 @@ const src = {
 
 gulp.task('html', function () {
   return gulp.src(src.htmlTake)
-    // .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(src.baseDist + 'html'));
 });
 
@@ -130,11 +130,11 @@ gulp.task('css-libs',
 gulp.task('scripts', function () {
   return gulp.src(src.jsTake)
     .pipe(plumber())
-    // .pipe(babel({
-    //   presets: ['env']
-    // }))
+    .pipe(babel({
+      presets: ['env']
+    }))
     // .pipe(concat('script.min.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest(src.jsDist))
 });
 
@@ -156,7 +156,7 @@ gulp.task('browser-sync', function () {
     },
     notify: true,
     port: 8080,
-    open: false
+    open: true
   });
   gulp.watch(src.pugTake, gulp.series('pug'));
   gulp.watch(src.scssTake, gulp.series('scss'));
@@ -166,7 +166,6 @@ gulp.task('browser-sync', function () {
 });
 
 gulp.task('watch', gulp.series(['css-libs', 'jslibs', 'browser-sync']), function () {
-
 });
 
 // MINIFY IMGS

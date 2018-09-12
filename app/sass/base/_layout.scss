@@ -3,14 +3,14 @@
 @import "../misc/mixins";
 @import "../misc/media";
 
-html {
-  @include laptop {
-    font-size: rem(15px);
-  }
-  @include phones {
-    font-size: rem(13px);
-  }
-}
+// html {
+//   @include laptop {
+//     font-size: rem(15px);
+//   }
+//   @include phones {
+//     font-size: rem(13px);
+//   }
+// }
 
 html,
 body {
@@ -23,7 +23,7 @@ body {
   line-height: 1.62;
   -webkit-font-smoothing: antialiased;
   position: relative;
-  font-family: $rob;
+  // font-family: $rob;
 }
 
 .wrapper {

@@ -4,7 +4,8 @@
   "description": "gulpAndWebpack",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot"
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
   },
   "author": "Alexandr Bryukhanov",
   "license": "ISC",
@@ -44,7 +45,6 @@
     "normalize.css": "^8.0.0",
     "uncss": "^0.16.1",
     "vinyl-buffer": "^1.0.1",
-    "vue": "^2.5.13",
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^3.1.0"
